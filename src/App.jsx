@@ -309,12 +309,12 @@ export default function App() {
 
       {/* ── Section 1: Home ── */}
       <section id="home" className="max-w-6xl mx-auto px-4 md:px-8 pt-24 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
           {/* ── Card 1: Hero Intro (col-span-2) ── */}
-          <div className="md:col-span-2 rounded-3xl p-8 flex flex-col justify-between bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
+          <div className="md:col-span-2 rounded-3xl p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
             <div>
-              <h1 className="font-extrabold text-5xl md:text-6xl text-white tracking-tight leading-[1.1] mb-5">
+              <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.1] mb-4 sm:mb-5">
                 Hi, I'm{' '}
                 <span className="text-white">
                   Sai Manikanta
@@ -322,16 +322,16 @@ export default function App() {
                 <br />
                 <span className="font-light text-white">Reddy Seelam</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
                 Full-Stack Developer building scalable MERN applications, AI-powered tools with RAG & Google Gemini, and premium, production-grade web systems.
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 mt-6">
+            <div className="flex flex-wrap gap-2 mt-5 sm:mt-6">
               {['about', 'experience', 'projects', 'contact'].map((link) => (
                 <button
                   key={link}
                   onClick={() => handleScroll(link)}
-                  className="flex items-center gap-2 glass-button capitalize text-xs font-semibold text-white rounded-full px-5 py-2.5"
+                  className="flex items-center gap-2 glass-button capitalize text-xs font-semibold text-white rounded-full px-4 sm:px-5 py-2 sm:py-2.5"
                 >
                   {link === 'experience' ? 'experience' : link === 'projects' ? 'projects' : link}
                   <ArrowRight className="w-3 h-3 text-white" />
@@ -342,7 +342,7 @@ export default function App() {
 
           {/* ── Card 2: Profile Photo Bento Card ── */}
           <div
-            className="rounded-3xl p-5 flex flex-col items-center justify-center cursor-pointer group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] h-full min-h-[300px] md:min-h-0 bg-gradient-to-br from-zinc-950 to-black border border-white/10 relative card-glow overflow-hidden"
+            className="rounded-3xl p-4 sm:p-5 flex flex-col items-center justify-center cursor-pointer group transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] min-h-[260px] sm:min-h-[300px] md:min-h-0 bg-gradient-to-br from-zinc-950 to-black border border-white/10 relative card-glow overflow-hidden"
             onClick={() => handleScroll('about')}
           >
             <div className="w-full h-full flex items-center justify-center py-2 relative">
@@ -414,33 +414,33 @@ export default function App() {
       </section>
 
       {/* ── Section 3: Experience ── */}
-      <section id="experience" className="max-w-6xl mx-auto px-4 md:px-8 py-16 border-t border-white/20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+      <section id="experience" className="max-w-6xl mx-auto px-4 md:px-8 py-12 sm:py-16 border-t border-white/20">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <Briefcase className="w-5 h-5 text-white" /> Work Experience
           </h2>
           <div className="h-1 w-12 bg-white mx-auto mt-3 rounded-full opacity-50"></div>
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="rounded-3xl p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
+          <div className="rounded-3xl p-5 sm:p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
 
-            <div className="flex justify-between items-start gap-4 mb-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-2xl bg-zinc-900 border border-white/10">
-                  <Briefcase className="w-5 h-5 text-white" />
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4 mb-5 sm:mb-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-zinc-900 border border-white/10 shrink-0 mt-0.5">
+                  <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-white text-lg md:text-xl">{resumeData.experience.role}</h4>
-                  <p className="text-white/90 text-base mt-0.5">{resumeData.experience.company} · {resumeData.experience.location}</p>
+                  <h4 className="font-extrabold text-white text-base sm:text-lg md:text-xl leading-tight">{resumeData.experience.role}</h4>
+                  <p className="text-white/90 text-sm sm:text-base mt-0.5">{resumeData.experience.company} · {resumeData.experience.location}</p>
                 </div>
               </div>
-              <span className="text-xs md:text-sm font-mono px-3.5 py-1.5 rounded-full text-white/80 shrink-0 bg-zinc-900 border border-white/10">
+              <span className="text-xs font-mono px-3 py-1.5 rounded-full text-white/80 shrink-0 bg-zinc-900 border border-white/10 self-start sm:self-auto">
                 {resumeData.experience.duration}
               </span>
             </div>
 
-            <ul className="space-y-4 list-disc pl-5 marker:text-white/60 text-base md:text-lg text-white/90">
+            <ul className="space-y-3 sm:space-y-4 list-disc pl-4 sm:pl-5 marker:text-white/60 text-sm sm:text-base md:text-lg text-white/90">
               {resumeData.experience.bullets.map((b, i) => (
                 <li key={i} className="leading-relaxed">{b}</li>
               ))}
@@ -451,38 +451,38 @@ export default function App() {
       </section>
 
       {/* ── Section 4: Education ── */}
-      <section id="education" className="max-w-6xl mx-auto px-4 md:px-8 py-16 border-t border-white/20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+      <section id="education" className="max-w-6xl mx-auto px-4 md:px-8 py-12 sm:py-16 border-t border-white/20">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <GraduationCap className="w-5 h-5 text-white" /> Education
           </h2>
           <div className="h-1 w-12 bg-white mx-auto mt-3 rounded-full opacity-50"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-3xl mx-auto space-y-5 sm:space-y-6">
 
           {/* Degree Card */}
-          <div className="rounded-3xl p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
-            <div className="flex justify-between items-start gap-4 flex-wrap mb-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-2xl bg-zinc-900 border border-white/10">
-                  <GraduationCap className="w-5 h-5 text-white" />
+          <div className="rounded-3xl p-5 sm:p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-5 sm:mb-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2.5 sm:p-3 rounded-2xl bg-zinc-900 border border-white/10 shrink-0 mt-0.5">
+                  <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-white text-lg md:text-xl">{resumeData.education.degree}</h4>
-                  <p className="text-white/90 text-base mt-0.5">{resumeData.education.institution}</p>
+                  <h4 className="font-extrabold text-white text-base sm:text-lg md:text-xl leading-snug">{resumeData.education.degree}</h4>
+                  <p className="text-white/90 text-sm sm:text-base mt-0.5">{resumeData.education.institution}</p>
                 </div>
               </div>
-              <div className="text-right shrink-0">
-                <span className="text-base font-mono text-white block">{resumeData.education.duration}</span>
-                <span className="text-base font-mono text-white/90 block mt-1">CGPA: <span className="text-white font-bold">{resumeData.education.cgpa}</span> / 10</span>
+              <div className="text-left sm:text-right shrink-0 pl-10 sm:pl-0">
+                <span className="text-sm sm:text-base font-mono text-white block">{resumeData.education.duration}</span>
+                <span className="text-sm sm:text-base font-mono text-white/90 block mt-1">CGPA: <span className="text-white font-bold">{resumeData.education.cgpa}</span> / 10</span>
               </div>
             </div>
             <div>
-              <p className="text-xs md:text-sm uppercase font-mono tracking-wider text-white mb-3">Relevant Coursework</p>
-              <div className="flex flex-wrap gap-2">
+              <p className="text-xs uppercase font-mono tracking-wider text-white mb-3">Relevant Coursework</p>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {resumeData.education.coursework.map(c => (
-                  <span key={c} className="text-sm font-mono px-3.5 py-1.5 rounded-full bg-zinc-900 border border-white/10 text-white/90">
+                  <span key={c} className="text-xs sm:text-sm font-mono px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-zinc-900 border border-white/10 text-white/90">
                     {c}
                   </span>
                 ))}
@@ -491,17 +491,17 @@ export default function App() {
           </div>
 
           {/* Achievements Card */}
-          <div className="rounded-3xl p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
-            <p className="text-xs md:text-sm uppercase font-mono tracking-widest text-white mb-5 flex items-center gap-1.5 border-b border-white/20 pb-3">
+          <div className="rounded-3xl p-5 sm:p-8 bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/20 transition-all duration-500 relative card-glow">
+            <p className="text-xs uppercase font-mono tracking-widest text-white mb-4 sm:mb-5 flex items-center gap-1.5 border-b border-white/20 pb-3">
               <Trophy className="w-3.5 h-3.5" /> Key Accomplishments
             </p>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {resumeData.achievements.map((a, i) => (
-                <div key={i} className="flex gap-4 items-start">
-                  <div className="p-2 rounded-xl flex-shrink-0 bg-zinc-900 border border-white/10">
-                    <Sparkles className="w-4 h-4 text-white" />
+                <div key={i} className="flex gap-3 sm:gap-4 items-start">
+                  <div className="p-1.5 sm:p-2 rounded-xl flex-shrink-0 bg-zinc-900 border border-white/10">
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                   </div>
-                  <p className="text-base md:text-lg text-white/90 leading-relaxed">{a}</p>
+                  <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">{a}</p>
                 </div>
               ))}
             </div>
@@ -511,36 +511,44 @@ export default function App() {
       </section>
 
       {/* ── Section 4: Projects ── */}
-      <section id="projects" className="max-w-6xl mx-auto px-4 md:px-8 py-16 border-t border-white/20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+      <section id="projects" className="max-w-6xl mx-auto px-4 md:px-8 py-12 sm:py-16 border-t border-white/20">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <Code2 className="w-5 h-5 text-white" /> Featured Projects
           </h2>
           <div className="h-1 w-12 bg-white mx-auto mt-3 rounded-full opacity-50"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {resumeData.projects.map((proj) => (
             <div
               key={proj.id}
               onClick={() => setSelectedProject(proj)}
-              className="rounded-3xl p-8 cursor-pointer bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1 relative card-glow group/card"
+              className="rounded-3xl p-5 sm:p-8 cursor-pointer bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1 relative card-glow group/card"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8 items-stretch">
                 
+                {/* Screenshot on mobile – show at top */}
+                <div className="lg:hidden w-full rounded-2xl overflow-hidden border border-white/10">
+                  <img
+                    src={proj.id === 'tom-ai' ? '/tom-ai.png' : '/faculty.png'}
+                    alt={proj.title}
+                    className="w-full object-cover object-top"
+                    style={{ maxHeight: '200px' }}
+                  />
+                </div>
+
                 {/* Project Details Column */}
                 <div className="lg:col-span-3 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <div>
-                          <h3 className="font-extrabold text-white text-lg group-hover/card:text-zinc-300 transition-colors">{proj.title}</h3>
-                          <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-white/80 bg-zinc-900 border border-white/10">
-                            {proj.tag}
-                          </span>
-                        </div>
+                    <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
+                      <div>
+                        <h3 className="font-extrabold text-white text-base sm:text-lg group-hover/card:text-zinc-300 transition-colors leading-tight">{proj.title}</h3>
+                        <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-white/80 bg-zinc-900 border border-white/10 inline-block mt-1">
+                          {proj.tag}
+                        </span>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-2 shrink-0">
                         <a
                           href={proj.github}
                           target="_blank"
@@ -562,11 +570,11 @@ export default function App() {
                       </div>
                     </div>
 
-                    <p className="text-sm md:text-base text-white/95 font-semibold mb-3">
+                    <p className="text-sm sm:text-base text-white/95 font-semibold mb-2 sm:mb-3">
                       {proj.desc}
                     </p>
 
-                    <ul className="list-disc pl-4 space-y-2 text-sm md:text-base text-white/80 marker:text-white/40 mb-4">
+                    <ul className="list-disc pl-4 space-y-1.5 sm:space-y-2 text-sm sm:text-base text-white/80 marker:text-white/40 mb-3 sm:mb-4">
                       {proj.bullets.map((b, i) => (
                         <li key={i} className="leading-relaxed">{b}</li>
                       ))}
@@ -574,7 +582,7 @@ export default function App() {
                     
                     <button 
                       onClick={(e) => { e.stopPropagation(); setSelectedProject(proj); }}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white mt-1 mb-4 transition-all group-hover/card:translate-x-1 duration-300"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white mt-1 mb-3 sm:mb-4 transition-all group-hover/card:translate-x-1 duration-300"
                     >
                       View Technical Deep Dive <ArrowRight className="w-3.5 h-3.5" />
                     </button>
@@ -582,15 +590,15 @@ export default function App() {
 
                   <div className="flex flex-wrap gap-1.5">
                     {proj.tech.map((t) => (
-                      <span key={t} className="text-xs md:text-sm font-mono px-3 py-1.5 rounded text-white/90 bg-zinc-900/60 border border-white/5">
+                      <span key={t} className="text-xs font-mono px-2.5 sm:px-3 py-1 sm:py-1.5 rounded text-white/90 bg-zinc-900/60 border border-white/5">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Screenshot Column */}
-                <div className="lg:col-span-2 flex items-center justify-center">
+                {/* Screenshot Column – desktop only */}
+                <div className="hidden lg:flex lg:col-span-2 items-center justify-center">
                   <div className="w-full rounded-2xl overflow-hidden group/img border border-white/10">
                     <img
                       src={proj.id === 'tom-ai' ? '/tom-ai.png' : '/faculty.png'}
@@ -609,38 +617,38 @@ export default function App() {
       </section>
 
       {/* ── Section 5: Contact ── */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-16 border-t border-white/20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-12 sm:py-16 border-t border-white/20">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
             <Mail className="w-5 h-5 text-white" /> Get In Touch
           </h2>
           <div className="h-1 w-12 bg-white mx-auto mt-3 rounded-full opacity-50"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           
           {/* Direct channels left intro column */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="font-heading font-extrabold text-white text-3xl tracking-tight leading-tight">
+          <div className="space-y-5 sm:space-y-6">
+            <div className="space-y-3 sm:space-y-4">
+              <h3 className="font-heading font-extrabold text-white text-2xl sm:text-3xl tracking-tight leading-tight">
                 Let's build <br />something together
               </h3>
-              <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-md">
+              <p className="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed max-w-md">
                 I am interested in full-stack engineering, web development, and AI integration opportunities. If you have an exciting project, a role, or simply want to chat, get in touch through any of these channels.
               </p>
             </div>
             
             {/* Elegant Status Badge */}
-            <div className="inline-flex items-center gap-3 p-4 rounded-2xl bg-zinc-900/50 border border-white/5 max-w-sm">
+            <div className="inline-flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-zinc-900/50 border border-white/5 w-full sm:max-w-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-led-blink shrink-0"></span>
-              <p className="text-xs md:text-sm text-zinc-300 font-medium">
+              <p className="text-xs sm:text-sm text-zinc-300 font-medium">
                 Open to Software Engineering & Application Developer roles.
               </p>
             </div>
           </div>
 
           {/* Large Contact Links Column */}
-          <div className="space-y-4 w-full">
+          <div className="space-y-3 sm:space-y-4 w-full">
             {[
               {
                 href: `mailto:${resumeData.email}`,
@@ -649,7 +657,7 @@ export default function App() {
                 iconBg: 'rgba(234,67,53,0.18)',
                 iconBorder: 'rgba(234,67,53,0.4)',
                 icon: (
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#EA4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <polyline points="22,6 12,13 2,6" stroke="#EA4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -662,7 +670,7 @@ export default function App() {
                 iconBg: 'rgba(10,102,194,0.18)',
                 iconBorder: 'rgba(10,102,194,0.4)',
                 icon: (
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="#0A66C2">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="#0A66C2">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                     <rect x="2" y="9" width="4" height="12"/>
                     <circle cx="4" cy="4" r="2"/>
@@ -676,7 +684,7 @@ export default function App() {
                 iconBg: 'rgba(255,255,255,0.08)',
                 iconBorder: 'rgba(255,255,255,0.2)',
                 icon: (
-                  <svg viewBox="0 0 98 96" width="22" height="22" fill="#ffffff">
+                  <svg viewBox="0 0 98 96" width="20" height="20" fill="#ffffff">
                     <path fillRule="evenodd" clipRule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
                   </svg>
                 ),
@@ -688,7 +696,7 @@ export default function App() {
                 iconBg: 'rgba(255,161,22,0.15)',
                 iconBorder: 'rgba(255,161,22,0.4)',
                 icon: (
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
                     <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" fill="#FFA116"/>
                   </svg>
                 ),
@@ -700,25 +708,25 @@ export default function App() {
                 iconBg: 'rgba(52,211,153,0.15)',
                 iconBorder: 'rgba(52,211,153,0.35)',
                 icon: (
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 ),
               },
             ].map(({ href, icon, label, val, iconBg, iconBorder }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-between p-6 rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:border-white/30 bg-gradient-to-br from-zinc-950 to-black border border-white/10 relative card-glow group no-underline">
-                <div className="flex items-center gap-5">
-                  <div className="p-3.5 rounded-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                className="flex items-center justify-between p-4 sm:p-5 rounded-2xl sm:rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:border-white/30 bg-gradient-to-br from-zinc-950 to-black border border-white/10 relative card-glow group no-underline">
+                <div className="flex items-center gap-3 sm:gap-5 min-w-0">
+                  <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{ background: iconBg, border: `1px solid ${iconBorder}` }}>
                     {icon}
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs text-white/40 uppercase tracking-widest font-mono font-bold">{label}</p>
-                    <p className="text-base md:text-lg text-white font-semibold mt-1 truncate">{val}</p>
+                    <p className="text-sm sm:text-base text-white font-semibold mt-0.5 truncate max-w-[180px] xs:max-w-none sm:max-w-[260px] md:max-w-none">{val}</p>
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/20 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 ml-2" />
               </a>
             ))}
           </div>
@@ -727,7 +735,7 @@ export default function App() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="py-8 border-t border-white/20 text-center text-xs md:text-sm text-white/40 font-mono">
+      <footer className="py-6 sm:py-8 border-t border-white/20 text-center text-xs sm:text-sm text-white/40 font-mono px-4">
         <p>© 2026 Sai Manikanta Reddy Seelam. All rights reserved.</p>
         <p className="mt-1">Built with React, Tailwind CSS & Anti-Gravity Tech Stack.</p>
       </footer>
@@ -735,11 +743,11 @@ export default function App() {
       {/* ── Project Details Modal ── */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 modal-overlay animate-fade-in"
           onClick={() => setSelectedProject(null)}
         >
           <div 
-            className="bg-zinc-950 border border-zinc-800 rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl animate-scale-up max-h-[90vh] flex flex-col"
+            className="bg-zinc-950 border border-zinc-800 rounded-2xl sm:rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl animate-scale-up max-h-[92vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -822,13 +830,13 @@ export default function App() {
             </div>
 
             {/* Modal Footer */}
-            <div className="flex justify-end gap-3 px-6 py-4 border-t border-zinc-900 bg-zinc-950 sticky bottom-0">
+            <div className="flex flex-col xs:flex-row justify-end gap-2 sm:gap-3 px-4 sm:px-6 py-4 border-t border-zinc-900 bg-zinc-950 sticky bottom-0">
               <a 
                 href={selectedProject.github} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-zinc-800 hover:border-zinc-500 text-xs font-bold text-zinc-300 transition-all bg-zinc-900/20"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full border border-zinc-800 hover:border-zinc-500 text-xs font-bold text-zinc-300 transition-all bg-zinc-900/20 w-full xs:w-auto"
               >
                 <GithubIcon className="w-3.5 h-3.5" /> Codebase
               </a>
@@ -837,7 +845,7 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-bold transition-all"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-bold transition-all w-full xs:w-auto"
               >
                 <ExternalLink className="w-3.5 h-3.5" /> Launch Demo
               </a>
