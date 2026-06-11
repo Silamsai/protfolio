@@ -203,7 +203,7 @@ const resumeData = {
         'Implemented full-text search with debounce optimization and genre-based filtering across 10,000+ movies and TV shows.',
       ],
       github: 'https://github.com/Silamsai/CineFlow',
-      demo: 'https://cineflow.vercel.app/',
+      demo: 'https://cine-flow-gold.vercel.app/',
       challenges: 'Handling large volumes of real-time API data efficiently while maintaining a smooth, cinematic user experience without UI jank or layout shifts.',
       solutions: 'Implemented server-side response caching with TTL strategies to reduce TMDB API calls by 70%. Used React Suspense and skeleton loaders for seamless content streaming and zero layout shift.',
     },
