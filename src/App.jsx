@@ -171,6 +171,24 @@ const resumeData = {
       challenges: 'Enforcing fine-grained authorization (RBAC) across multiple admin/faculty CRUD endpoints and dealing with complex schedule overlaps.',
       solutions: 'Built middleware verifying JWT payload claims. Implemented database level uniqueness constraints and transaction validations to prevent double-booking of slots.',
     },
+    {
+      id: 'echo',
+      emoji: '💬',
+      title: 'Echo – Real-Time Chat Application',
+      tag: 'Real-Time & WebSockets',
+      tech: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Redis', 'Docker', 'JWT'],
+      desc: 'A production-grade real-time chat application with instant messaging, online presence tracking, and scalable WebSocket infrastructure.',
+      bullets: [
+        'Built bi-directional real-time communication using Socket.io with room-based architecture supporting group and private chats.',
+        'Implemented Redis pub/sub for horizontal scaling across multiple Node.js instances, enabling seamless multi-server WebSocket handling.',
+        'Designed JWT-secured REST API with MongoDB persistence for message history, user profiles, and chat room management.',
+        'Containerized the full stack with Docker and Docker Compose; set up CI/CD pipeline via GitHub Actions for automated testing and deployment.',
+      ],
+      github: 'https://github.com/Silamsai/Echo',
+      demo: 'https://echo-chat.vercel.app/',
+      challenges: 'Maintaining consistent real-time state across multiple server instances and handling WebSocket reconnection logic gracefully under network instability.',
+      solutions: 'Adopted Redis pub/sub as a message broker between Socket.io server instances. Implemented exponential back-off reconnection on the client and sticky-session load balancing via Nginx upstream.',
+    },
   ],
   achievements: [
     'Solved 150+ DSA problems on LeetCode and GeeksforGeeks.',
@@ -179,10 +197,10 @@ const resumeData = {
   ],
   skills: {
     languages: ['JavaScript', 'Python', 'Java', 'SQL', 'C++'],
-    frameworks: ['React.js', 'Node.js', 'Express.js', 'NumPy', 'Pandas', 'Scikit-learn'],
-    databases: ['MongoDB', 'MySQL', 'PostgreSQL', 'Atlas Vector Search'],
+    frameworks: ['React.js', 'Node.js', 'Express.js', 'Socket.io', 'NumPy', 'Pandas', 'Scikit-learn'],
+    databases: ['MongoDB', 'MySQL', 'PostgreSQL', 'Atlas Vector Search', 'Redis'],
     tools: ['Git', 'GitHub', 'Postman', 'VS Code', 'Power BI', 'Excel'],
-    cloud: ['REST APIs', 'CI/CD', 'JWT', 'OAuth 2.0'],
+    cloud: ['Docker', 'CI/CD', 'GitHub Actions', 'Vercel', 'REST APIs', 'JWT', 'OAuth 2.0', 'Nginx', 'Linux', 'WebSockets'],
     ai: ['RAG', 'NLP', 'Prompt Eng.', 'Gemini API', 'Semantic Search'],
   },
 };
@@ -519,100 +537,86 @@ export default function App() {
           <div className="h-1 w-12 bg-white mx-auto mt-3 rounded-full opacity-50"></div>
         </div>
 
-        <div className="space-y-6 sm:space-y-8">
-          {resumeData.projects.map((proj) => (
-            <div
-              key={proj.id}
-              onClick={() => setSelectedProject(proj)}
-              className="rounded-3xl p-5 sm:p-8 cursor-pointer bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1 relative card-glow group/card"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 sm:gap-8 items-stretch">
-                
-                {/* Screenshot on mobile – show at top */}
-                <div className="lg:hidden w-full rounded-2xl overflow-hidden border border-white/10">
+        {/* Projects Grid – 2 columns on large screens */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+          {resumeData.projects.map((proj) => {
+            const imgSrc = proj.id === 'tom-ai' ? '/tom-ai.png' : proj.id === 'faculty-management' ? '/faculty.png' : '/echo.png';
+            return (
+              <div
+                key={proj.id}
+                onClick={() => setSelectedProject(proj)}
+                className="rounded-3xl p-5 sm:p-6 cursor-pointer bg-gradient-to-br from-zinc-950 to-black border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] hover:-translate-y-1 relative card-glow group/card flex flex-col"
+              >
+                {/* Project Screenshot */}
+                <div className="w-full rounded-2xl overflow-hidden border border-white/10 mb-5">
                   <img
-                    src={proj.id === 'tom-ai' ? '/tom-ai.png' : '/faculty.png'}
+                    src={imgSrc}
                     alt={proj.title}
-                    className="w-full object-cover object-top"
-                    style={{ maxHeight: '200px' }}
+                    className="w-full object-cover object-top transition-transform duration-700 group-hover/card:scale-[1.03]"
+                    style={{ height: '180px' }}
                   />
                 </div>
 
-                {/* Project Details Column */}
-                <div className="lg:col-span-3 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
-                      <div>
-                        <h3 className="font-extrabold text-white text-base sm:text-lg group-hover/card:text-zinc-300 transition-colors leading-tight">{proj.title}</h3>
-                        <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-white/80 bg-zinc-900 border border-white/10 inline-block mt-1">
-                          {proj.tag}
-                        </span>
-                      </div>
-                      <div className="flex gap-2 shrink-0">
-                        <a
-                          href={proj.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
-                        >
-                          <GithubIcon className="w-4 h-4 text-white" />
-                        </a>
-                        <a
-                          href={proj.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
-                        >
-                          <ExternalLink className="w-4 h-4 text-white" />
-                        </a>
-                      </div>
+                {/* Project Details */}
+                <div className="flex flex-col flex-1">
+                  <div className="flex items-start justify-between mb-3 gap-2">
+                    <div>
+                      <h3 className="font-extrabold text-white text-base sm:text-lg group-hover/card:text-zinc-300 transition-colors leading-tight">{proj.title}</h3>
+                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-white/80 bg-zinc-900 border border-white/10 inline-block mt-1">
+                        {proj.tag}
+                      </span>
                     </div>
-
-                    <p className="text-sm sm:text-base text-white/95 font-semibold mb-2 sm:mb-3">
-                      {proj.desc}
-                    </p>
-
-                    <ul className="list-disc pl-4 space-y-1.5 sm:space-y-2 text-sm sm:text-base text-white/80 marker:text-white/40 mb-3 sm:mb-4">
-                      {proj.bullets.map((b, i) => (
-                        <li key={i} className="leading-relaxed">{b}</li>
-                      ))}
-                    </ul>
-                    
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); setSelectedProject(proj); }}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white mt-1 mb-3 sm:mb-4 transition-all group-hover/card:translate-x-1 duration-300"
-                    >
-                      View Technical Deep Dive <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                    <div className="flex gap-2 shrink-0">
+                      <a
+                        href={proj.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
+                      >
+                        <GithubIcon className="w-4 h-4 text-white" />
+                      </a>
+                      <a
+                        href={proj.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
+                      >
+                        <ExternalLink className="w-4 h-4 text-white" />
+                      </a>
+                    </div>
                   </div>
+
+                  <p className="text-sm text-white/95 font-semibold mb-2">
+                    {proj.desc}
+                  </p>
+
+                  <ul className="list-disc pl-4 space-y-1.5 text-sm text-white/80 marker:text-white/40 mb-3 flex-1">
+                    {proj.bullets.slice(0, 3).map((b, i) => (
+                      <li key={i} className="leading-relaxed">{b}</li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setSelectedProject(proj); }}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-white mb-3 transition-all group-hover/card:translate-x-1 duration-300"
+                  >
+                    View Technical Deep Dive <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
 
                   <div className="flex flex-wrap gap-1.5">
                     {proj.tech.map((t) => (
-                      <span key={t} className="text-xs font-mono px-2.5 sm:px-3 py-1 sm:py-1.5 rounded text-white/90 bg-zinc-900/60 border border-white/5">
+                      <span key={t} className="text-xs font-mono px-2.5 py-1 rounded text-white/90 bg-zinc-900/60 border border-white/5">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Screenshot Column – desktop only */}
-                <div className="hidden lg:flex lg:col-span-2 items-center justify-center">
-                  <div className="w-full rounded-2xl overflow-hidden group/img border border-white/10">
-                    <img
-                      src={proj.id === 'tom-ai' ? '/tom-ai.png' : '/faculty.png'}
-                      alt={proj.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-750 group-hover/card:scale-[1.03]"
-                      style={{ maxHeight: '280px' }}
-                    />
-                  </div>
-                </div>
-
               </div>
-
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -772,7 +776,7 @@ export default function App() {
               {/* Project Image Banner */}
               <div className="w-full rounded-2xl overflow-hidden border border-zinc-900 aspect-video relative max-h-[260px] bg-black">
                 <img 
-                  src={selectedProject.id === 'tom-ai' ? '/tom-ai.png' : '/faculty.png'}
+                  src={selectedProject.id === 'tom-ai' ? '/tom-ai.png' : selectedProject.id === 'faculty-management' ? '/faculty.png' : '/echo.png'}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover object-top"
                 />
