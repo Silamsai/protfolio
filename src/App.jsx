@@ -203,7 +203,7 @@ const resumeData = {
         'Built a full admin dashboard with revenue analytics (Recharts), movie/theater CRUD with Cloudinary image uploads, user management, and refund processing.',
       ],
       github: 'https://github.com/Silamsai/CineFlow',
-      demo: 'https://cineflow.vercel.app/',
+      demo: 'https://cine-flow-gold.vercel.app/',
       challenges: 'Preventing double-booking race conditions on popular shows and keeping seat state perfectly in sync across concurrent users in real-time without stale UI.',
       solutions: 'Used Socket.io rooms per show for live seat broadcasts combined with a 5-minute server-side seat hold (TTL) backed by MongoDB. Optimistic UI updates with server reconciliation ensured zero stale seat selections.',
     },
