@@ -590,8 +590,7 @@ export default function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="liquid-btn liquid-btn-ghost p-2 rounded-full"
-                        title="View on GitHub"
+                        className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
                       >
                         <GithubIcon className="w-4 h-4 text-white" />
                       </a>
@@ -600,8 +599,7 @@ export default function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="liquid-btn liquid-btn-solid p-2 rounded-full"
-                        title="Live Demo"
+                        className="p-2 rounded-full transition-all hover:scale-110 hover:bg-white/10 bg-zinc-900 border border-white/10"
                       >
                         <ExternalLink className="w-4 h-4 text-white" />
                       </a>
@@ -860,7 +858,7 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="liquid-btn liquid-btn-ghost flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold w-full xs:w-auto"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full border border-zinc-800 hover:border-zinc-500 text-xs font-bold text-zinc-300 transition-all bg-zinc-900/20 w-full xs:w-auto"
               >
                 <GithubIcon className="w-3.5 h-3.5" /> Codebase
               </a>
@@ -869,7 +867,7 @@ export default function App() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="liquid-btn liquid-btn-solid flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold w-full xs:w-auto"
+                className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-bold transition-all w-full xs:w-auto"
               >
                 <ExternalLink className="w-3.5 h-3.5" /> Launch Demo
               </a>
