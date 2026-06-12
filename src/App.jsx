@@ -296,7 +296,7 @@ export default function App() {
             </button>
           ))}
           <a
-            href="https://drive.google.com/file/d/1tQS4TsAEjQJQMQ9E0F2PaxaHGUM3BLwN/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1t9un5VATHZmYgg9ItQv2CZ1AwHZ0GW5X/view?usp=sharing"
             target="_blank" rel="noopener noreferrer"
             className="ml-2 flex items-center gap-1.5 bg-black text-white border border-white/20 text-xs font-bold px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all"
           >
